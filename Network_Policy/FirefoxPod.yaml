@@ -1,0 +1,22 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: firefox-pod
+  namespace: rishi
+  labels:
+    app: Firefox
+spec:
+  containers:
+    - name: firefox-container
+      image: lscr.io/linuxserver/firefox:latest
+      ports:
+      - containerPort: 3001
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "512Mi"
+        limits:
+          cpu: "2"
+          memory: "2Gi"
