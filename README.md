@@ -11,6 +11,7 @@ This repository covers:
 - Kubernetes Architecture
 - Pods
 - Multi-Container Pods
+- Network Policy
 - Deployments
 - ReplicaSets
 - Services
