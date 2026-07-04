@@ -263,6 +263,77 @@ localhost:80
 
 ---
 
+---
+
+# 3. Network Policy
+
+NetworkPolicy is used to control traffic between Pods inside a Kubernetes cluster.
+
+It helps improve security by allowing or denying communication based on defined rules.
+
+Benefits:
+
+- Restrict Pod-to-Pod communication
+- Allow traffic only from trusted Pods
+- Improve cluster security
+- Implement Zero Trust networking
+
+Types of Rules:
+
+## Ingress
+
+Controls incoming traffic to a Pod.
+
+## Egress
+
+Controls outgoing traffic from a Pod.
+
+Example:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+
+metadata:
+  name: deny-all-ingress
+
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+
+  policyTypes:
+  - Ingress
+
+  ingress: []
+```
+
+This policy blocks all incoming traffic to Pods with the label:
+
+```text
+app: backend
+```
+
+Useful Commands:
+
+```bash
+kubectl get networkpolicy
+
+kubectl describe networkpolicy deny-all-ingress
+
+kubectl apply -f network-policy.yaml
+
+kubectl delete -f network-policy.yaml
+```
+
+Note:
+
+NetworkPolicy works only when your Kubernetes cluster uses a supported Network Policy provider such as:
+
+- Cilium
+- Calico
+- Azure CNI Powered by Cilium
+
 # 3. ReplicaSet
 
 ReplicaSet maintains number of Pod replicas.
