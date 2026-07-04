@@ -1,4 +1,4 @@
-# Kubernetes Network Policy - Complete Interview & Hands-on Guide
+# Kubernetes Network Policy 
 
 > A complete guide to understand, implement and troubleshoot Kubernetes Network Policies.
 
