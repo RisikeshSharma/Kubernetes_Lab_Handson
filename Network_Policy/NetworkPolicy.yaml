@@ -2,10 +2,36 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: networkpolicy-ingress-egress
+  namespace: rishi
 spec:
   podSelector:
     matchLabels:
       app: nginx
   policyTypes:
+    - Ingress #Ingress(Incoming) traffic denied.
+    - Egress  #Egress(outgoing) traffic denied.
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: networkpolicy-ingress-egress1
+  namespace: rishi
+
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+
+  policyTypes:
     - Ingress
     - Egress
+
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 80  # Allow incoming TCP traffic on port 80
+
+  egress:
+    - ports:
+        - protocol: TCP
+          port: 80 # Allow outgoing TCP traffic on port 80
