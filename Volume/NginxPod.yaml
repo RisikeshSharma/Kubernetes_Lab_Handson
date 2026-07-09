@@ -22,7 +22,7 @@ spec:
         memory: "512Mi"
 
     volumeMounts:
-    - name: shared-volume
+    - name: EmptyDir_Volume
       mountPath: /usr/share/nginx/html
 
   volumes:
