@@ -1,4 +1,4 @@
-# Kubernetes EmptyDir Volume - Complete Guide (Interview Ready)
+# Kubernetes EmptyDir Volume 
 
 # What is EmptyDir?
 
