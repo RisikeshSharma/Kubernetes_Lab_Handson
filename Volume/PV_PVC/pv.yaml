@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile-pv
+spec:
+  capacity:
+    storage: 5Gi
+
+  accessModes:
+    - ReadWriteMany
+
+  storageClassName: ""
+
+  persistentVolumeReclaimPolicy: Retain
+
+  csi:
+    driver: file.csi.azure.com
+    volumeHandle: azurefile-volume
+
+    volumeAttributes:
+      shareName: fileshare121
+
+    nodeStageSecretRef:
+      name: azure-secret
+      namespace: storage-demo

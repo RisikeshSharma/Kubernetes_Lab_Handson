@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile-pvc
+  namespace: storage-demo
+
+spec:
+  storageClassName: ""
+
+  accessModes:
+    - ReadWriteMany
+
+  resources:
+    requests:
+      storage: 4Gi
+
+  volumeName: azurefile-pv
